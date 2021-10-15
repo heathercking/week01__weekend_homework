@@ -22,4 +22,7 @@ def get_pets_sold(dictionary):
 def increase_pets_sold(dictionary, num_sold):
     dictionary["admin"]["pets_sold"] += num_sold
 
-
+def get_stock_count(dictionary):
+    stock_count = len(dictionary["pets"])
+    return stock_count
+    
