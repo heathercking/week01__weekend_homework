@@ -52,6 +52,11 @@ def add_pet_to_stock(dictionary, new_pet):
 def get_customer_cash(dictionary):
     return dictionary["cash"]
 
+def remove_customer_cash(dictionary, amount):
+    dictionary["cash"] -= amount
+
+
+
 
 
 
