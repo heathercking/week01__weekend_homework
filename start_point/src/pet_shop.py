@@ -38,6 +38,16 @@ def find_pet_by_name(dictionary, name):
         if pet["name"] == name:
             return pet
 
+def remove_pet_by_name(dictionary, name):
+    index = 0
+    for pet in dictionary["pets"]:
+        if pet["name"] == name:
+            # pet_remove = index  -  superfluous
+            del dictionary["pets"][index]
+        index += 1
+    # print(dictionary["pets"])
+
+
 
 
 
