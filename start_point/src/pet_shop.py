@@ -12,3 +12,7 @@ def get_total_cash(dictionary):
 def add_or_remove_cash(dictionary, amount):
     dictionary["admin"]["total_cash"] += amount
 
+def add_or_remove_cash(dictionary, amount):
+    dictionary["admin"]["total_cash"] += amount
+
+
