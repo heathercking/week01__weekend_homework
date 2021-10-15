@@ -49,6 +49,10 @@ def remove_pet_by_name(dictionary, name):
 def add_pet_to_stock(dictionary, new_pet):
     dictionary["pets"].append(new_pet)
 
+def get_customer_cash(dictionary):
+    return dictionary["cash"]
+
+
 
 
 
