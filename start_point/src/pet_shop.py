@@ -45,7 +45,12 @@ def remove_pet_by_name(dictionary, name):
             # pet_remove = index  -  superfluous
             del dictionary["pets"][index]
         index += 1
-    # print(dictionary["pets"])
+
+def add_pet_to_stock(dictionary, new_pet):
+    dictionary["pets"].append(new_pet)
+
+
+
 
 
 
