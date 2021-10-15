@@ -15,4 +15,6 @@ def add_or_remove_cash(dictionary, amount):
 def add_or_remove_cash(dictionary, amount):
     dictionary["admin"]["total_cash"] += amount
 
-
+def get_pets_sold(dictionary):
+    pets_sold = dictionary["admin"]["pets_sold"]
+    return pets_sold
