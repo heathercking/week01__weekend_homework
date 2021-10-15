@@ -33,4 +33,15 @@ def get_pets_by_breed(dictionary, breed):
             breed_list.append(pet)
     return breed_list
 
+def find_pet_by_name(dictionary, name):
+    for pet in dictionary["pets"]:
+        if pet["name"] == name:
+            return pet
+
+
+
+
+
+
+
 
