@@ -55,6 +55,9 @@ def get_customer_cash(dictionary):
 def remove_customer_cash(dictionary, amount):
     dictionary["cash"] -= amount
 
+def get_customer_pet_count(dictionary):
+    return len(dictionary["pets"])
+
 
 
 
