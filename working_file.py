@@ -152,8 +152,9 @@ def sell_pet_to_customer(dictionary, name, customer):
 
         # increase total number of pets sold
         increase_pets_sold(dictionary, 1)
-        # print(dictionary["admin"]["pets_sold"])
+        print(dictionary["admin"]["pets_sold"])
     else:
         print("Sorry, pet not found.")
 
-sell_pet_to_customer(pet_shop, "Dave", customers[0])
+sell_pet_to_customer(pet_shop, "Arthur", customers[0])
+print(pet_shop["admin"]["pets_sold"])

@@ -79,8 +79,8 @@ def sell_pet_to_customer(dictionary, name, customer):
     #         index += 1
 
     # # find the cost of the pet being sold
-    # pet_index = find_pet_index(dictionary, name)
-    pet_price = dictionary["pets"][3]["price"]
+    # pet_index = find_pet_index(dictionary, name) - this worked in a separate file but when running here it returned an error saying the index couldn't be a string
+    pet_price = dictionary["pets"][3]["price"]  #only got this to work with manually entering the index number
     # print(pet_price)
 
     # deduct the cost from the customer's cash
@@ -103,7 +103,54 @@ def sell_pet_to_customer(dictionary, name, customer):
     # print(dictionary["admin"]["pets_sold"])
 
 
+#WORKINGS FOR IF PET NOT FOUND - won't set to true when pet found, but worked (or seemed to work) when I was piecing it together in a separate file
 
+# def sell_pet_to_customer(dictionary, name, customer):
+
+#     pet_search_result = find_pet_by_name(dictionary, name)
+#     # print(pet_search_result)
+
+#     if pet_search_result != None:
+#         pet_found = True
+#     else:
+#         pet_found = False
+
+#     if pet_found == True:
+#         # def find_pet_index(dictionary, name):
+#         #     index = 0
+#         #     for pet in dictionary["pets"]:
+#         #         if pet["name"] == name:
+#         #             return index
+#         #         index += 1
+
+#         # # find the cost of the pet being sold
+#         # pet_index = find_pet_index(dictionary, name)
+#         pet_price = dictionary["pets"][3]["price"]
+#         # print(pet_price)
+
+#         # deduct the cost from the customer's cash
+#         remove_customer_cash(customer, pet_price)
+#         print(customer)
+
+#         # add the cost to the shop's total cash
+#         add_or_remove_cash(dictionary, pet_price)
+#         print(dictionary["admin"])
+
+#         add_pet_to_customer(customer, name)
+#         print(customer)
+
+#         # remove the pet, by name, from the shop's inventory
+#         remove_pet_by_name(dictionary, name)
+#         # print(dictionary["pets"])
+
+#         # increase total number of pets sold
+#         increase_pets_sold(dictionary, 1)
+#         print(dictionary["admin"]["pets_sold"])
+#     else:
+#         print("Sorry, pet not found.")
+
+# # sell_pet_to_customer(pet_shop, "Arthur", customers[0])
+# # print(pet_shop["admin"]["pets_sold"])
 
 
 
