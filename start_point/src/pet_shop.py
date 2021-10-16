@@ -71,40 +71,36 @@ def customer_can_afford_pet(customer, pet):
 
 def sell_pet_to_customer(dictionary, name, customer):
 
-    def find_pet_index(dictionary, pet_name):
-        index = 0
-        for pet in dictionary["pets"]:
-            if pet["name"] == pet_name:
-                return index
-            index += 1
+    # def find_pet_index(dictionary, name):
+    #     index = 0
+    #     for pet in dictionary["pets"]:
+    #         if pet["name"] == name:
+    #             return index
+    #         index += 1
 
-    # find the cost of the pet being sold
-    pet_index = find_pet_index(dictionary, name)
-    pet_price = dictionary["pets"][pet_index]["price"]
-    print(pet_price)
+    # # find the cost of the pet being sold
+    # pet_index = find_pet_index(dictionary, name)
+    pet_price = dictionary["pets"][3]["price"]
+    # print(pet_price)
 
     # deduct the cost from the customer's cash
     remove_customer_cash(customer, pet_price)
-    print(customer)
+    # print(customer)
 
     # add the cost to the shop's total cash
     add_or_remove_cash(dictionary, pet_price)
-    print(dictionary["admin"])
+    # print(dictionary["admin"])
 
     # find the named pet and add it to the customer's pets
-    for pet in dictionary["pets"]:
-        if pet["name"] == name:
-            customer["pets"].append(pet)
-    
-    print(customer)
+    add_pet_to_customer(customer, name)
 
     # remove the pet, by name, from the shop's inventory
     remove_pet_by_name(dictionary, name)
-    print(dictionary["pets"])
+    # print(dictionary["pets"])
 
     # increase total number of pets sold
     increase_pets_sold(dictionary, 1)
-    print(dictionary["admin"]["pets_sold"])
+    # print(dictionary["admin"]["pets_sold"])
 
 
 

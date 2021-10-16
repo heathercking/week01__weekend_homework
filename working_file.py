@@ -1,5 +1,7 @@
 import pdb
 
+from start_point.src.pet_shop import add_pet_to_customer
+
 # from start_point.src.pet_shop import remove_pet_by_name
 
 
@@ -97,17 +99,17 @@ def add_or_remove_cash(dictionary, amount):
 
 def sell_pet_to_customer(dictionary, name, customer):
 
-    def find_pet_index(dictionary, pet_name):
-        index = 0
-        for pet in dictionary["pets"]:
-            if pet["name"] == pet_name:
-                return index
-            index += 1
+    # def find_pet_index(dictionary, name):
+    #     index = 0
+    #     for pet in dictionary["pets"]:
+    #         if pet["name"] == name:
+    #             return index
+    #         index += 1
 
-    # find the cost of the pet being sold
-    pet_index = find_pet_index(dictionary, name)
-    pet_price = dictionary["pets"][pet_index]["price"]
-    print(pet_price)
+    # # find the cost of the pet being sold
+    # pet_index = find_pet_index(dictionary, name)
+    pet_price = dictionary["pets"][3]["price"]
+    # print(pet_price)
 
     # deduct the cost from the customer's cash
     remove_customer_cash(customer, pet_price)
@@ -118,26 +120,26 @@ def sell_pet_to_customer(dictionary, name, customer):
     print(dictionary["admin"])
 
     # find the named pet and add it to the customer's pets
-    for pet in dictionary["pets"]:
-        if pet["name"] == name:
-            customer["pets"].append(pet)
+    # for pet in dictionary["pets"]:
+    #     if pet["name"] == name:
+    #         return customer["pets"].append(pet)
     
+    add_pet_to_customer(customer, name)
     print(customer)
 
     # remove the pet, by name, from the shop's inventory
     remove_pet_by_name(dictionary, name)
-    print(dictionary["pets"])
+    # print(dictionary["pets"])
 
     # increase total number of pets sold
     increase_pets_sold(dictionary, 1)
-    print(dictionary["admin"]["pets_sold"])
-
-# sell_pet_to_customer(pet_shop, "Arthur", customers[0])
+    # print(dictionary["admin"]["pets_sold"])
 
 sell_pet_to_customer(pet_shop, "Arthur", customers[0])
-print(customers)
-
-
+# print(customers)
+print(customers[0])
+# customer_pet_count = len(customers[0]["pets"])
+# print(customer_pet_count)
 
 
 
