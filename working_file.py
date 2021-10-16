@@ -1,10 +1,5 @@
+
 import pdb
-
-from start_point.src.pet_shop import add_pet_to_customer
-
-# from start_point.src.pet_shop import remove_pet_by_name
-
-
 
 pet_shop = {
     "pets": [
@@ -94,74 +89,71 @@ def remove_customer_cash(dictionary, amount):
 def add_or_remove_cash(dictionary, amount):
     dictionary["admin"]["total_cash"] += amount
 
+def add_pet_to_customer(customer, new_pet):
+    customer["pets"].append(new_pet)
+
+def find_pet_by_name(dictionary, name):
+    for pet in dictionary["pets"]:
+        if pet["name"] == name:
+            return pet
+
+# print(find_pet_by_name(pet_shop, "Dave"))
+
+# pet_search_result = find_pet_by_name(pet_shop, "Arthur")
+# print(pet_search_result)
+
+# if pet_search_result != None:
+#     pet_found = True
+# else:
+#     pet_found = False
+
+# print(pet_found)
+
 
 # MAIN FUNCTION
 
 def sell_pet_to_customer(dictionary, name, customer):
 
-    # def find_pet_index(dictionary, name):
-    #     index = 0
-    #     for pet in dictionary["pets"]:
-    #         if pet["name"] == name:
-    #             return index
-    #         index += 1
+    pet_search_result = find_pet_by_name(dictionary, name)
+    # print(pet_search_result)
 
-    # # find the cost of the pet being sold
-    # pet_index = find_pet_index(dictionary, name)
-    pet_price = dictionary["pets"][3]["price"]
-    # print(pet_price)
+    if pet_search_result != None:
+        pet_found = True
+    else:
+        pet_found = False
 
-    # deduct the cost from the customer's cash
-    remove_customer_cash(customer, pet_price)
-    print(customer)
+    if pet_found == True:
+        # def find_pet_index(dictionary, name):
+        #     index = 0
+        #     for pet in dictionary["pets"]:
+        #         if pet["name"] == name:
+        #             return index
+        #         index += 1
 
-    # add the cost to the shop's total cash
-    add_or_remove_cash(dictionary, pet_price)
-    print(dictionary["admin"])
+        # # find the cost of the pet being sold
+        # pet_index = find_pet_index(dictionary, name)
+        pet_price = dictionary["pets"][3]["price"]
+        # print(pet_price)
 
-    # find the named pet and add it to the customer's pets
-    # for pet in dictionary["pets"]:
-    #     if pet["name"] == name:
-    #         return customer["pets"].append(pet)
-    
-    add_pet_to_customer(customer, name)
-    print(customer)
+        # deduct the cost from the customer's cash
+        remove_customer_cash(customer, pet_price)
+        print(customer)
 
-    # remove the pet, by name, from the shop's inventory
-    remove_pet_by_name(dictionary, name)
-    # print(dictionary["pets"])
+        # add the cost to the shop's total cash
+        add_or_remove_cash(dictionary, pet_price)
+        print(dictionary["admin"])
 
-    # increase total number of pets sold
-    increase_pets_sold(dictionary, 1)
-    # print(dictionary["admin"]["pets_sold"])
+        add_pet_to_customer(customer, name)
+        print(customer)
 
-sell_pet_to_customer(pet_shop, "Arthur", customers[0])
-# print(customers)
-print(customers[0])
-# customer_pet_count = len(customers[0]["pets"])
-# print(customer_pet_count)
+        # remove the pet, by name, from the shop's inventory
+        remove_pet_by_name(dictionary, name)
+        # print(dictionary["pets"])
 
+        # increase total number of pets sold
+        increase_pets_sold(dictionary, 1)
+        # print(dictionary["admin"]["pets_sold"])
+    else:
+        print("Sorry, pet not found.")
 
-
-
-
-
-
-
-
-
-
-
-        
-
-    
-
-
-
-
-
-
-
-
-
-
+sell_pet_to_customer(pet_shop, "Dave", customers[0])
