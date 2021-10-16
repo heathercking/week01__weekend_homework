@@ -86,46 +86,56 @@ def remove_pet_by_name(dictionary, name):
 def increase_pets_sold(dictionary, num_sold):
     dictionary["admin"]["pets_sold"] += num_sold
 
-def find_pet_index(dictionary, pet_name):
-    index = 0
-    for pet in dictionary["pets"]:
-        if pet["name"] == pet_name:
-            # print(pet_index)
-            return index
-        index += 1
+def remove_customer_cash(dictionary, amount):
+    dictionary["cash"] -= amount
 
-pet_shop["pets"][find_pet_index(pet_shop, "Arthur")]["price"]
+def add_or_remove_cash(dictionary, amount):
+    dictionary["admin"]["total_cash"] += amount
 
 
 # MAIN FUNCTION
 
 def sell_pet_to_customer(dictionary, name, customer):
-    
-    # pet_index = 
+
+    def find_pet_index(dictionary, pet_name):
+        index = 0
+        for pet in dictionary["pets"]:
+            if pet["name"] == pet_name:
+                return index
+            index += 1
+
+    # find the cost of the pet being sold
+    pet_index = find_pet_index(dictionary, name)
     pet_price = dictionary["pets"][pet_index]["price"]
+    print(pet_price)
 
+    # deduct the cost from the customer's cash
+    remove_customer_cash(customer, pet_price)
+    print(customer)
 
-    # finding the named pet and adding it to the customer's pets
+    # add the cost to the shop's total cash
+    add_or_remove_cash(dictionary, pet_price)
+    print(dictionary["admin"])
+
+    # find the named pet and add it to the customer's pets
     for pet in dictionary["pets"]:
         if pet["name"] == name:
             customer["pets"].append(pet)
     
-    # print(customers)
+    print(customer)
 
-    # then we're calling the previous function to remove the pet, by name, from the shop's inventory
+    # remove the pet, by name, from the shop's inventory
     remove_pet_by_name(dictionary, name)
-    # print(dictionary["pets"])
+    print(dictionary["pets"])
 
-
-
-
-    # call previous function to increase total number of pets sold
+    # increase total number of pets sold
     increase_pets_sold(dictionary, 1)
-    # print(dictionary["admin"]["pets_sold"])
+    print(dictionary["admin"]["pets_sold"])
 
-
+# sell_pet_to_customer(pet_shop, "Arthur", customers[0])
 
 sell_pet_to_customer(pet_shop, "Arthur", customers[0])
+print(customers)
 
 
 
