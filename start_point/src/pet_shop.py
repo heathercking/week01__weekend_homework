@@ -111,6 +111,11 @@ def sell_pet_to_customer(dictionary, name, customer):
 
 # def sell_pet_to_customer(dictionary, name, customer):
 
+    # for pet in dictionary["pets"]: 
+    #     if pet["name"] == name:  # this doesn't find Arthur, but does if you manually enter his name after ==
+    #         print(pet)
+    #         return pet
+
 #     pet_search_result = find_pet_by_name(dictionary, name)
 #     # print(pet_search_result)
 
