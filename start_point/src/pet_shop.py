@@ -78,29 +78,33 @@ def sell_pet_to_customer(dictionary, name, customer):
     #             return index
     #         index += 1
 
-    # # find the cost of the pet being sold
+    # find the cost of the pet being sold
     # pet_index = find_pet_index(dictionary, name) - this worked in a separate file but when running here it returned an error saying the index couldn't be a string
     pet_price = dictionary["pets"][3]["price"]  #only got this to work with manually entering the index number
     # print(pet_price)
 
-    # deduct the cost from the customer's cash
-    remove_customer_cash(customer, pet_price)
-    # print(customer)
+    # check if customer has enough cash:
+    customer_cash = get_customer_cash(customer)
+    if customer_cash >= pet_price:
+        # deduct the cost from the customer's cash
+        remove_customer_cash(customer, pet_price)
+        # print(customer)
 
-    # add the cost to the shop's total cash
-    add_or_remove_cash(dictionary, pet_price)
-    # print(dictionary["admin"])
+        # add the cost to the shop's total cash
+        add_or_remove_cash(dictionary, pet_price)
+        # print(dictionary["admin"])
 
-    # find the named pet and add it to the customer's pets
-    add_pet_to_customer(customer, name)
+        # find the named pet and add it to the customer's pets
+        add_pet_to_customer(customer, name)
 
-    # remove the pet, by name, from the shop's inventory
-    remove_pet_by_name(dictionary, name)
-    # print(dictionary["pets"])
+        # remove the pet, by name, from the shop's inventory
+        remove_pet_by_name(dictionary, name)
+        # print(dictionary["pets"])
 
-    # increase total number of pets sold
-    increase_pets_sold(dictionary, 1)
-    # print(dictionary["admin"]["pets_sold"])
+        # increase total number of pets sold
+        increase_pets_sold(dictionary, 1)
+        # print(dictionary["admin"]["pets_sold"])
+
 
 
 #WORKINGS FOR IF PET NOT FOUND - won't set to true when pet found, but worked (or seemed to work) when I was piecing it together in a separate file
