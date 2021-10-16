@@ -86,22 +86,37 @@ def remove_pet_by_name(dictionary, name):
 def increase_pets_sold(dictionary, num_sold):
     dictionary["admin"]["pets_sold"] += num_sold
 
+def find_pet_index(dictionary, pet_name):
+    index = 0
+    for pet in dictionary["pets"]:
+        if pet["name"] == pet_name:
+            # print(pet_index)
+            return index
+        index += 1
+
+pet_shop["pets"][find_pet_index(pet_shop, "Arthur")]["price"]
+
+
+# MAIN FUNCTION
+
 def sell_pet_to_customer(dictionary, name, customer):
     
+    # pet_index = 
+    pet_price = dictionary["pets"][pet_index]["price"]
+
+
     # finding the named pet and adding it to the customer's pets
-    index = 0
     for pet in dictionary["pets"]:
         if pet["name"] == name:
             customer["pets"].append(pet)
-        index += 1
     
-    print(customers)
+    # print(customers)
 
     # then we're calling the previous function to remove the pet, by name, from the shop's inventory
     remove_pet_by_name(dictionary, name)
     # print(dictionary["pets"])
 
-    
+
 
 
     # call previous function to increase total number of pets sold
@@ -111,6 +126,11 @@ def sell_pet_to_customer(dictionary, name, customer):
 
 
 sell_pet_to_customer(pet_shop, "Arthur", customers[0])
+
+
+
+
+
 
 
 
